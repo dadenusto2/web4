@@ -1,0 +1,10 @@
+#content{
+    outline: none;
+    font-family: 'Uni Sans Semibold' ;
+    margin: auto auto;
+    background-color: #F0F8FF;
+    text-align: center
+}
+input, select{ 
+    border-radius: 10px;
+}
