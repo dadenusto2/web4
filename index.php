@@ -56,8 +56,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }
 
     if (!isset($_POST['inSup1']) && !isset($_POST['inSup2']) && !isset($_POST['inSup3'])) {
-        setcookie('super_error', '1', time() + 24 * 60 * 60);
-        $errors = TRUE;
+        setcookie('inSuperpowers_error', '1', time() + 24 * 60 * 60);
+        $messages[] = '<div class="error">Выберите способность.</div>';
       }
       else {
         setcookie('inSup1_value', isset($_POST['inSup1']) ? $_POST['inSup1'] : '', time() + 365 * 30 * 24 * 60 * 60);
@@ -65,11 +65,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         setcookie('inSup3_value', isset($_POST['inSup3']) ? $_POST['inSup3'] : '', time() + 365 * 30 * 24 * 60 * 60);
       }
     
-    
-    
     if ($errors['inMessage']) {
         setcookie('inMessage_error', '', 100000);
-        $messages[] = '<div class="error">Выберите сообщение.</div>';
+        $messages[] = '<div class="error">Введите сообщение.</div>';
         }
 
     if ($errors['check']) {
@@ -84,9 +82,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $values['inDate'] = empty($_COOKIE['inDate_value']) ? '' : $_COOKIE['inDate_value'];
     $values['inGender'] = empty($_COOKIE['inGender_value']) ? '' : $_COOKIE['inGender_value'];
     $values['inLimb'] = empty($_COOKIE['inLimb_value']) ? '' : $_COOKIE['inLimb_value'];
-    $values['super1'] = empty($_COOKIE['super1_value']) ? '' : $_COOKIE['super1_value'];
-    $values['super2'] = empty($_COOKIE['super2_value']) ? '' : $_COOKIE['super2_value'];
-    $values['super3'] = empty($_COOKIE['super3_value']) ? '' : $_COOKIE['super3_value'];
+    $values['inSup1'] = empty($_COOKIE['inSup1_value']) ? '' : $_COOKIE['inSup1_value'];
+    $values['inSup2'] = empty($_COOKIE['inSup2_value']) ? '' : $_COOKIE['inSup2_value'];
+    $values['inSup3'] = empty($_COOKIE['inSup3_value']) ? '' : $_COOKIE['inSup3_value'];
     $values['inMessage'] = empty($_COOKIE['inMessage_value']) ? '' : $_COOKIE['inMessage_value'];
     $values['check'] = empty($_COOKIE['check_value']) ? '' : $_COOKIE['check_value'];
    
@@ -136,18 +134,15 @@ else {
         setcookie('inLimb_value', $_POST['inLimb'], time() + 30 * 24 * 60 * 60);
     }
 
-    if (!isset($_POST['super1']) && !isset($_POST['super2']) && !isset($_POST['super3'])) {
-        setcookie('super_error', '1', time() + 24 * 60 * 60);
+    if (!isset($_POST['inSup1']) && !isset($_POST['inSup2']) && !isset($_POST['inSup3'])) {
+        setcookie('inSuperpowers_error', '1', time() + 24 * 60 * 60);
         $errors = TRUE;
       }
       else {
-        setcookie('super1_value', isset($_POST['super1']) ? $_POST['super1'] : '', time() + 365 * 30 * 24 * 60 * 60);
-        setcookie('super2_value', isset($_POST['super2']) ? $_POST['super2'] : '', time() + 365 * 30 * 24 * 60 * 60);
-        setcookie('super3_value', isset($_POST['super3']) ? $_POST['super3'] : '', time() + 365 * 30 * 24 * 60 * 60);
+        setcookie('inSup1_value', isset($_POST['inSup1']) ? $_POST['inSup1'] : '', time() + 365 * 30 * 24 * 60 * 60);
+        setcookie('inSup2_value', isset($_POST['inSup2']) ? $_POST['inSup2'] : '', time() + 365 * 30 * 24 * 60 * 60);
+        setcookie('inSup3_value', isset($_POST['inSup3']) ? $_POST['inSup3'] : '', time() + 365 * 30 * 24 * 60 * 60);
       }
-    
-    
-    
 
     if (empty($_POST['inMessage'])) {
         setcookie('inMessage_error', '1', time() + 24 * 60 * 60);
@@ -189,9 +184,9 @@ else{
 	$date = $_POST['inDate'];
 	$gender = $_POST['inGender'];
 	$limb = $_POST['inLimb'];
-    $super = $_POST['super1'].
-        (isset($_POST['super2']) ? (' '. $_POST['super2']) : '').
-        (isset($_POST['super3']) ? (' '. $_POST['super3']) : '');
+    $super = $_POST['inSup1'].
+        (isset($_POST['inSup2']) ? (' '. $_POST['inSup2']) : '').
+        (isset($_POST['inSup3']) ? (' '. $_POST['inSup3']) : '');
 
 	$message = $_POST['inMessage'];
 	try {

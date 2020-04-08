@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">   <meta name="viewport" content="width=device-wedth,initial-scale=1.0">
 		<link rel="stylesheet" href = "style.css">
-		<title>web5</title>
+		<title>web4</title>
 	</head>
 
 	<body>
@@ -26,7 +26,7 @@
 				<label for="inEmail">e-mail:</label><br>
 				<input type="text" id="email" name="inEmail" <?php if ($errors['inEmail']) {print 'class="error"';} ?> value="<?php print $values['inEmail']; ?>" placeholder="email"><br>
 				<br/>Дата рождения:<br/>
-					<input name="inDate" <?php if ($errors['inDate']) {print 'class="error"';} ?> value="<?php print $values['inDate']; ?>" type="text"/><br/>
+					<input name="inDate" <?php if ($errors['inDate']) {print 'class="error"';} ?> value="<?php print $values['inDate']; ?>" type="text" placeholder="01.01.2000"/><br/>
 				<label for="inGender">Пол:</label><br>
 					<input type="radio" name="inGender" value="male" <?php if ($values['inGender'] == 'male') {print 'checked="checked"';} ?>/> Мужской<br>
 					<input type="radio" name="inGender" value="female"  value="male" <?php if ($values['inGender'] == 'female') {print 'checked="checked"';} ?>/>Женский<br>
@@ -38,11 +38,11 @@
                 <input type="radio" name="inLimb" <?php if ($errors['inLimb']) {print 'class="error"';} ?> value=">4" <?php if ($values['inLimb'] == '>4') {print 'checked="checked"';} ?> />>4<br/> 
 		
 				<label for="inSuperpowers">Сверхспособности:</label><br>
-					<input type="checkbox" name="super1" value="бессмертие" <?php if ($values['super1'] != '') {print 'checked="checked"';} ?> />Бессмертие<br/>
-					<input type="checkbox" name="super2" value="прохождение сквозь стены" <?php if ($values['super2'] != '') {print 'checked="checked"';} ?> />Прохождение сквозь стены<br/>
-					<input type="checkbox" name="super3" value="левитация" <?php if ($values['super3'] != '') {print 'checked="checked"';} ?> />Левитация<br/>
+					<input type="checkbox" name="inSup1" value="бессмертие" <?php if ($values['inSup1'] != '') {print 'checked="checked"';} ?> />Бессмертие<br/>
+					<input type="checkbox" name="inSup2" value="прохождение сквозь стены" <?php if ($values['inSup2'] != '') {print 'checked="checked"';} ?> />Прохождение сквозь стены<br/>
+					<input type="checkbox" name="inSup3" value="левитация" <?php if ($values['inSup3'] != '') {print 'checked="checked"';} ?> />Левитация<br/>
                 
-				<textarea rows="10" cols="45" name="inMessage" value="<?php print $values['message']; ?>">Сообщение</textarea><br>
+				<textarea rows="10" cols="45" name="inMessage" value="<?php print $values['message']; ?>" placeholder="Сообщение"></textarea><br>
 				<input type="checkbox" name="check" value="check" <?php if ($values['check'] != '') {print 'checked="checked"';} ?>> C контрактом ознакомлен<br/>
 				<p><input class="submit" type="submit" value="Отправить" name="send"></p><br>
 			</form>
